@@ -1,0 +1,198 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #0a0f1a;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a3547; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
+
+/* ── Sidebar ─────────────────────────────────────── */
+.stes-sider .ant-menu-item {
+  border-radius: 8px !important;
+  margin: 2px 10px !important;
+  width: calc(100% - 20px) !important;
+  transition: all 0.18s ease !important;
+}
+
+.stes-sider .ant-menu-item-selected {
+  background: rgba(34, 197, 94, 0.12) !important;
+  border-left: 3px solid #22c55e !important;
+}
+
+.stes-sider .ant-menu-item-selected .ant-menu-title-content,
+.stes-sider .ant-menu-item-selected .anticon {
+  color: #22c55e !important;
+}
+
+.stes-sider .ant-menu-item:hover:not(.ant-menu-item-selected) {
+  background: rgba(255,255,255,0.05) !important;
+}
+
+.stes-sider .ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Page header ─────────────────────────────────── */
+.page-header {
+  margin-bottom: 24px;
+}
+.page-header h2.ant-typography {
+  margin-bottom: 2px !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.3px;
+}
+
+/* ── Stat card accent borders ────────────────────── */
+.stat-card-green  { border-top: 3px solid #22c55e !important; }
+.stat-card-blue   { border-top: 3px solid #3b82f6 !important; }
+.stat-card-amber  { border-top: 3px solid #f59e0b !important; }
+.stat-card-purple { border-top: 3px solid #8b5cf6 !important; }
+.stat-card-red    { border-top: 3px solid #ef4444 !important; }
+
+/* ── Card polish ─────────────────────────────────── */
+.ant-card {
+  transition: box-shadow 0.2s ease;
+}
+
+/* ── Table ───────────────────────────────────────── */
+.ant-table-wrapper .ant-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn-primary {
+  background: #22c55e !important;
+  border: none !important;
+  font-weight: 600 !important;
+  box-shadow: 0 2px 8px rgba(34,197,94,0.25) !important;
+  transition: all 0.18s ease !important;
+}
+.btn-primary:hover {
+  background: #16a34a !important;
+  box-shadow: 0 4px 14px rgba(34,197,94,0.35) !important;
+  transform: translateY(-1px);
+}
+
+/* ── Auth background ─────────────────────────────── */
+.auth-bg {
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(34,197,94,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.05) 0%, transparent 50%),
+    linear-gradient(160deg, #050d18 0%, #0a1628 40%, #081420 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Auth card glass ─────────────────────────────── */
+.auth-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 360px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 0 0 1px rgba(34,197,94,0.08),
+    0 24px 60px rgba(0,0,0,0.5),
+    0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ── Input dark ──────────────────────────────────── */
+.auth-card .ant-input,
+.auth-card .ant-input-affix-wrapper,
+.auth-card .ant-input-password {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  color: #e6edf3 !important;
+  border-radius: 8px !important;
+}
+
+.auth-card .ant-input::placeholder,
+.auth-card .ant-input-affix-wrapper input::placeholder {
+  color: #4b5563 !important;
+}
+
+.auth-card .ant-input:focus,
+.auth-card .ant-input-affix-wrapper-focused {
+  border-color: #22c55e !important;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.15) !important;
+}
+
+.auth-card .ant-input-password-icon {
+  color: #4b5563 !important;
+}
+
+/* ── Filter bar ──────────────────────────────────── */
+.filter-bar {
+  background: linear-gradient(135deg, #0e1829 0%, #131c2e 100%);
+  border: 1px solid #1e2a3d;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.filter-bar-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-bar-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #4b5563;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.filter-bar-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: 1px;
+}
+
+/* ── Order card hover ────────────────────────────── */
+.order-card-item {
+  transition: border-color 0.18s, background 0.18s;
+}
+.order-card-item:hover {
+  border-color: rgba(34,197,94,0.4) !important;
+  background: #1a2235 !important;
+}
+
+/* ── Section title divider ───────────────────────── */
+.section-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0 16px;
+  margin: 8px 0 4px;
+}
