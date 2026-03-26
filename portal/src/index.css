@@ -117,13 +117,28 @@ body {
 }
 
 /* ── Input dark ──────────────────────────────────── */
-.auth-card .ant-input,
 .auth-card .ant-input-affix-wrapper,
 .auth-card .ant-input-password {
-  background: rgba(255,255,255,0.05) !important;
-  border: 1px solid rgba(255,255,255,0.1) !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 10px 0 !important;
   color: #e6edf3 !important;
-  border-radius: 8px !important;
+}
+
+.auth-card .ant-input-affix-wrapper > input.ant-input,
+.auth-card .ant-input {
+  background: transparent !important;
+  color: #e6edf3 !important;
+  box-shadow: none !important;
+}
+
+.auth-card .ant-input-affix-wrapper-focused,
+.auth-card .ant-input-affix-wrapper:focus-within {
+  border-bottom-color: #22c55e !important;
+  box-shadow: none !important;
 }
 
 .auth-card .ant-input::placeholder,
@@ -131,14 +146,17 @@ body {
   color: #4b5563 !important;
 }
 
-.auth-card .ant-input:focus,
-.auth-card .ant-input-affix-wrapper-focused {
-  border-color: #22c55e !important;
-  box-shadow: 0 0 0 2px rgba(34,197,94,0.15) !important;
+.auth-card .ant-input-password-icon,
+.auth-card .ant-input-suffix .anticon {
+  color: #4b5563 !important;
 }
 
-.auth-card .ant-input-password-icon {
-  color: #4b5563 !important;
+.auth-card input:-webkit-autofill,
+.auth-card input:-webkit-autofill:hover,
+.auth-card input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  -webkit-text-fill-color: #e6edf3 !important;
+  caret-color: #e6edf3;
 }
 
 /* ── Filter bar ──────────────────────────────────── */
