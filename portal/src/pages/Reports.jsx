@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Button, Drawer, Form, Input, Checkbox, Select, Typography, Card } from 'antd'
-import { BulbOutlined, FileTextOutlined, EditOutlined } from '@ant-design/icons'
+import { Button, Drawer, Form, Input, Checkbox, Select, Typography, Card, Tag, Avatar } from 'antd'
+import { FileTextOutlined, EditOutlined, PhoneOutlined, EnvironmentOutlined, CalendarOutlined, UserOutlined } from '@ant-design/icons'
 import PageHeader from '../components/Shared/PageHeader'
+import { activityReports } from '../data/staticData'
 
 const { Text } = Typography
 const WEEKDAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
@@ -65,33 +66,54 @@ export default function Reports() {
         }
       />
 
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d', minHeight: 320 }}
-        bodyStyle={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 320 }}
-      >
-        <div style={{
-          width: 72, height: 72, borderRadius: '50%',
-          background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.15)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          marginBottom: 16,
-        }}>
-          <BulbOutlined style={{ fontSize: 32, color: '#3b82f6' }} />
-        </div>
-        <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 15, display: 'block', marginBottom: 6 }}>
-          No Reports Yet
-        </Text>
-        <Text style={{ color: '#4b5563', fontSize: 13, textAlign: 'center', maxWidth: 340 }}>
-          Add your activity by filling the form after clicking "Activity Log"
-        </Text>
-        <Button
-          type="primary"
-          icon={<EditOutlined />}
-          className="btn-primary"
-          style={{ marginTop: 20 }}
-          onClick={() => setDrawerOpen(true)}
-        >
-          Add Activity Log
-        </Button>
-      </Card>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+        {activityReports.map(report => (
+          <Card key={report.id}
+            style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+            bodyStyle={{ padding: '16px 20px' }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
+              {/* Left */}
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 8 }}>
+                  <Tag color="blue" style={{ borderRadius: 6, fontWeight: 600, fontSize: 11 }}>
+                    {report.weekday}
+                  </Tag>
+                  {report.followUp && (
+                    <Tag icon={<PhoneOutlined />} color="purple" style={{ borderRadius: 6, fontSize: 11 }}>
+                      Follow-up
+                    </Tag>
+                  )}
+                  {report.visits && (
+                    <Tag icon={<EnvironmentOutlined />} color="cyan" style={{ borderRadius: 6, fontSize: 11 }}>
+                      Visit
+                    </Tag>
+                  )}
+                </div>
+                <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 14, display: 'block', marginBottom: 6 }}>
+                  {report.concept}
+                </Text>
+                <Text style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6 }}>
+                  {report.description}
+                </Text>
+              </div>
+              {/* Right */}
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, flexShrink: 0 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                  <Avatar size={20} style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)', fontSize: 9, fontWeight: 700 }}>
+                    {report.createdBy.slice(0, 2).toUpperCase()}
+                  </Avatar>
+                  <Text style={{ color: '#94a3b8', fontSize: 12 }}>{report.createdBy}</Text>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                  <CalendarOutlined style={{ color: '#4b5563', fontSize: 11 }} />
+                  <Text style={{ color: '#4b5563', fontSize: 11 }}>{report.createdAt}</Text>
+                </div>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
 
       <ActivityLogDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
     </div>

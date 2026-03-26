@@ -203,6 +203,94 @@ export const salesPersonStats = {
   totalEarning: 2395400,
 }
 
+// ─── Activity Reports ────────────────────────────────────────────────────────
+export const activityReports = [
+  {
+    id: 1,
+    weekday: 'Monday',
+    concept: 'Client Follow-up — BMC Street Light',
+    description: 'Called BMC project manager regarding delivery schedule. Confirmed advance payment receipt and discussed timeline adjustments.',
+    followUp: true,
+    visits: false,
+    createdAt: 'Mar 24, 2025',
+    createdBy: 'Sales Person',
+  },
+  {
+    id: 2,
+    weekday: 'Tuesday',
+    concept: 'Site Visit — DHA Phase II',
+    description: 'Visited DHA Phase II site for inspection of installed outdoor fixtures. Noted 3 units requiring replacement under warranty.',
+    followUp: false,
+    visits: true,
+    createdAt: 'Mar 25, 2025',
+    createdBy: 'Sales Person',
+  },
+  {
+    id: 3,
+    weekday: 'Wednesday',
+    concept: 'Quotation Sent — Hertz Solutions',
+    description: 'Prepared and sent quotation STES241-17A to Hertz Solutions for Indoor LED lighting package. Awaiting approval.',
+    followUp: true,
+    visits: false,
+    createdAt: 'Mar 26, 2025',
+    createdBy: 'Manager',
+  },
+  {
+    id: 4,
+    weekday: 'Thursday',
+    concept: 'Meeting — New Project Discussion',
+    description: 'Meeting with potential client regarding façade lighting project for commercial building. Shared product catalogue and pricing sheet.',
+    followUp: true,
+    visits: true,
+    createdAt: 'Mar 27, 2025',
+    createdBy: 'Sales Person',
+  },
+]
+
+// ─── Tasks ───────────────────────────────────────────────────────────────────
+export const tasks = [
+  {
+    id: 1,
+    title: 'Follow up on BMC Street Light quotation',
+    description: 'Call the BMC project manager to confirm approval of quotation STES-24/67A and discuss delivery timeline.',
+    status: 'Pending',
+    createdAt: 'Mar 20, 2025',
+    assignedTo: 'Sales Person',
+  },
+  {
+    id: 2,
+    title: 'Update stock inventory — March',
+    description: 'Perform end-of-month stock audit and update inventory records for all outdoor and indoor lighting models.',
+    status: 'Completed',
+    createdAt: 'Mar 18, 2025',
+    assignedTo: 'Manager',
+  },
+  {
+    id: 3,
+    title: 'Prepare weekly sales report',
+    description: 'Compile activity logs and sales figures for the week of March 24–28 and submit to management.',
+    status: 'In Progress',
+    createdAt: 'Mar 24, 2025',
+    assignedTo: 'Sales Person',
+  },
+  {
+    id: 4,
+    title: 'Send invoice to Hertz Solutions',
+    description: 'Generate and send the final invoice for delivered goods under Internal Order #IO-2024-003.',
+    status: 'Pending',
+    createdAt: 'Mar 22, 2025',
+    assignedTo: 'Accountant',
+  },
+  {
+    id: 5,
+    title: 'Renew supplier contracts',
+    description: 'Review and renew annual contracts with primary lighting suppliers before end of March deadline.',
+    status: 'Completed',
+    createdAt: 'Mar 10, 2025',
+    assignedTo: 'Manager',
+  },
+]
+
 // ─── Roles & nav ─────────────────────────────────────────────────────────────
 export const ROLES = {
   MANAGER: 'Manager',
