@@ -20,7 +20,7 @@ const STAT_ITEMS = [
 function FilterModal({ open, onClose }) {
   return (
     <Modal open={open} onCancel={onClose} footer={null}
-      title={<span style={{ color: '#e6edf3', fontWeight: 700 }}>Apply Filters</span>}
+      title={<span style={{ color: '#111827', fontWeight: 700 }}>Apply Filters</span>}
       width={380}
     >
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 8 }}>
@@ -47,8 +47,8 @@ function OrderCard({ order, active, onClick }) {
       onClick={onClick}
       className="order-card-item"
       style={{
-        background: active ? '#1a2235' : '#0e1829',
-        border: `1px solid ${active ? '#22c55e40' : '#1e2a3d'}`,
+        background: active ? '#f3f4f6' : '#f9fafb',
+        border: `1px solid ${active ? '#22c55e40' : '#e5e7eb'}`,
         borderLeft: `3px solid ${active ? '#22c55e' : 'transparent'}`,
         borderRadius: 8,
         padding: '12px 14px',
@@ -58,17 +58,17 @@ function OrderCard({ order, active, onClick }) {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 6 }}>
-        <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 13 }}>{order.projectDetails}</Text>
+        <Text style={{ color: '#111827', fontWeight: 600, fontSize: 13 }}>{order.projectDetails}</Text>
         <StatusBadge status={order.status} />
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2px 8px' }}>
         {[['Region', order.region], ['Subject', order.subject], ['Client', order.client]].map(([k, v]) => (
-          <Text key={k} style={{ color: '#4b5563', fontSize: 11 }}>
+          <Text key={k} style={{ color: '#9ca3af', fontSize: 11 }}>
             <span style={{ color: '#374151' }}>{k}: </span>{v}
           </Text>
         ))}
       </div>
-      <Text style={{ color: '#2d3d52', fontSize: 10, display: 'block', marginTop: 6 }}>
+      <Text style={{ color: '#9ca3af', fontSize: 10, display: 'block', marginTop: 6 }}>
         Created {order.creationDate}
       </Text>
     </div>
@@ -96,7 +96,7 @@ export default function InternalOrders() {
             <Card
               className={item.accent}
               bodyStyle={{ padding: '16px 20px' }}
-              style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+              style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <div style={{
@@ -108,10 +108,10 @@ export default function InternalOrders() {
                   {item.icon}
                 </div>
                 <div>
-                  <div style={{ color: '#e6edf3', fontWeight: 800, fontSize: 24, lineHeight: 1 }}>
+                  <div style={{ color: '#111827', fontWeight: 800, fontSize: 24, lineHeight: 1 }}>
                     {item.getValue(internalOrders)}
                   </div>
-                  <Text style={{ color: '#4b5563', fontSize: 11, display: 'block', marginTop: 3 }}>
+                  <Text style={{ color: '#9ca3af', fontSize: 11, display: 'block', marginTop: 3 }}>
                     {item.label}
                   </Text>
                 </div>
@@ -122,11 +122,11 @@ export default function InternalOrders() {
       </Row>
 
       {/* Orders */}
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 20 }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 20 }}>
         <div style={{ display: 'flex', gap: 10, marginBottom: 16 }}>
           <Input
             placeholder="Search orders..."
-            prefix={<SearchOutlined style={{ color: '#4b5563' }} />}
+            prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
             value={search}
             onChange={e => setSearch(e.target.value)}
             style={{ maxWidth: 260 }}
@@ -144,16 +144,16 @@ export default function InternalOrders() {
 
           <Col span={14}>
             {selected ? (
-              <Card style={{ background: '#0e1829', border: '1px solid #1e2a3d', borderRadius: 10 }} bodyStyle={{ padding: 20 }}>
+              <Card style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10 }} bodyStyle={{ padding: 20 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>
-                  <Title level={5} style={{ color: '#e6edf3', margin: 0 }}>{selected.projectDetails}</Title>
+                  <Title level={5} style={{ color: '#111827', margin: 0 }}>{selected.projectDetails}</Title>
                   <StatusBadge status={selected.status} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                   {[['Region', selected.region], ['Subject', selected.subject], ['Client', selected.client], ['Creation Date', selected.creationDate]].map(([k, v]) => (
-                    <div key={k} style={{ display: 'flex', gap: 10, padding: '8px 12px', background: '#131c2e', borderRadius: 8 }}>
-                      <Text style={{ color: '#4b5563', width: 110, flexShrink: 0, fontSize: 13 }}>{k}</Text>
-                      <Text style={{ color: '#e6edf3', fontSize: 13 }}>{v}</Text>
+                    <div key={k} style={{ display: 'flex', gap: 10, padding: '8px 12px', background: '#ffffff', borderRadius: 8 }}>
+                      <Text style={{ color: '#9ca3af', width: 110, flexShrink: 0, fontSize: 13 }}>{k}</Text>
+                      <Text style={{ color: '#111827', fontSize: 13 }}>{v}</Text>
                     </div>
                   ))}
                 </div>
@@ -162,10 +162,10 @@ export default function InternalOrders() {
               <div style={{
                 height: '100%', minHeight: 220,
                 display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                border: '2px dashed #1e2a3d', borderRadius: 10,
+                border: '2px dashed #e5e7eb', borderRadius: 10,
               }}>
-                <InboxOutlined style={{ fontSize: 36, color: '#1e2a3d', marginBottom: 10 }} />
-                <Text style={{ color: '#4b5563', textAlign: 'center', fontSize: 13 }}>
+                <InboxOutlined style={{ fontSize: 36, color: '#e5e7eb', marginBottom: 10 }} />
+                <Text style={{ color: '#9ca3af', textAlign: 'center', fontSize: 13 }}>
                   Select an order to view its details
                 </Text>
               </div>

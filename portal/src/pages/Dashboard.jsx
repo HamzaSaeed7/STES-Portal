@@ -27,17 +27,17 @@ const STAT_CONFIGS = {
 function StatCard({ label, icon, color, accent, value, unit }) {
   return (
     <Card className={accent} bodyStyle={{ padding: '18px 20px' }}
-      style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+      style={{ background: '#ffffff', border: '1px solid #e5e7eb', width: '100%' }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
-          <Text style={{ color: '#64748b', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.6px', display: 'block', marginBottom: 8 }}>
+          <Text style={{ color: '#9ca3af', fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.6px', display: 'block', marginBottom: 8 }}>
             {label}
           </Text>
-          <div style={{ color: '#e6edf3', fontWeight: 800, fontSize: 22, lineHeight: 1, marginBottom: 4 }}>
+          <div style={{ color: '#111827', fontWeight: 800, fontSize: 22, lineHeight: 1, marginBottom: 4 }}>
             {value}
           </div>
-          {unit && <Text style={{ color: '#4b5563', fontSize: 11 }}>{unit}</Text>}
+          {unit && <Text style={{ color: '#9ca3af', fontSize: 11 }}>{unit}</Text>}
         </div>
         <div style={{
           width: 40, height: 40, borderRadius: 10,
@@ -58,10 +58,10 @@ function ProfileCard({ name, email }) {
   return (
     <Card
       bodyStyle={{ padding: 16 }}
-      style={{ background: '#131c2e', border: '1px solid #1e2a3d', marginBottom: 12 }}
+      style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 12 }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-        <Text style={{ color: '#94a3b8', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Profile</Text>
+        <Text style={{ color: '#6b7280', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Profile</Text>
         <a href="/settings" style={{ color: '#22c55e', fontSize: 12, fontWeight: 500 }}>Settings</a>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
@@ -72,8 +72,8 @@ function ProfileCard({ name, email }) {
           {name.slice(0, 2).toUpperCase()}
         </Avatar>
         <div>
-          <div style={{ color: '#e6edf3', fontSize: 14, fontWeight: 700 }}>{name}</div>
-          <div style={{ color: '#4b5563', fontSize: 12, marginTop: 1 }}>{email}</div>
+          <div style={{ color: '#111827', fontSize: 14, fontWeight: 700 }}>{name}</div>
+          <div style={{ color: '#9ca3af', fontSize: 12, marginTop: 1 }}>{email}</div>
         </div>
       </div>
     </Card>
@@ -85,10 +85,10 @@ function CalendarWidget() {
   return (
     <Card
       bodyStyle={{ padding: 10 }}
-      style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+      style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8, padding: '0 4px' }}>
-        <Text style={{ color: '#94a3b8', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Calendar</Text>
+        <Text style={{ color: '#6b7280', fontSize: 12, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Calendar</Text>
         <a href="#" style={{ color: '#22c55e', fontSize: 12, fontWeight: 500 }}>View all tasks</a>
       </div>
       <Calendar
@@ -101,14 +101,14 @@ function CalendarWidget() {
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             padding: '4px 4px 8px', gap: 8,
           }}>
-            <Button size="small" type="text" style={{ color: '#94a3b8', padding: '0 6px' }}
+            <Button size="small" type="text" style={{ color: '#6b7280', padding: '0 6px' }}
               onClick={() => { const v = value.subtract(1, 'month'); onChange(v); setCurrent(v) }}>
               ‹
             </Button>
-            <Text style={{ color: '#e6edf3', fontSize: 13, fontWeight: 600 }}>
+            <Text style={{ color: '#111827', fontSize: 13, fontWeight: 600 }}>
               {value.format('MMMM YYYY')}
             </Text>
-            <Button size="small" type="text" style={{ color: '#94a3b8', padding: '0 6px' }}
+            <Button size="small" type="text" style={{ color: '#6b7280', padding: '0 6px' }}
               onClick={() => { const v = value.add(1, 'month'); onChange(v); setCurrent(v) }}>
               ›
             </Button>
@@ -122,10 +122,10 @@ function CalendarWidget() {
 function AddProjectModal({ open, onClose }) {
   return (
     <Modal open={open} onCancel={onClose} footer={null}
-      title={<span style={{ color: '#e6edf3' }}>Add Project Details</span>}
+      title={<span style={{ color: '#111827' }}>Add Project Details</span>}
       width={600} style={{ top: 60 }}
     >
-      <Text style={{ color: '#4b5563', fontSize: 12, display: 'block', marginBottom: 16 }}>
+      <Text style={{ color: '#9ca3af', fontSize: 12, display: 'block', marginBottom: 16 }}>
         Fill in the following information to create a new project
       </Text>
       <Form layout="vertical">
@@ -172,10 +172,10 @@ export default function Dashboard() {
     <div>
       {/* Greeting */}
       <div style={{ marginBottom: 24 }}>
-        <Title level={2} style={{ color: '#e6edf3', margin: 0, fontWeight: 800, fontSize: 24 }}>
+        <Title level={2} style={{ color: '#111827', margin: 0, fontWeight: 800, fontSize: 24 }}>
           Dashboard
         </Title>
-        <Text style={{ color: '#4b5563', fontSize: 13, marginTop: 4, display: 'block' }}>
+        <Text style={{ color: '#9ca3af', fontSize: 13, marginTop: 4, display: 'block' }}>
           Welcome back, <span style={{ color: '#22c55e', fontWeight: 600 }}>{role}</span> 👋
         </Text>
       </div>
@@ -186,9 +186,9 @@ export default function Dashboard() {
 
           {/* Stats row */}
           {!isAccountant && (
-            <Row gutter={[14, 14]} style={{ marginBottom: 20 }}>
+            <Row gutter={[14, 14]} style={{ marginBottom: 20 }} align="stretch">
               {statConfigs.map(cfg => (
-                <Col span={isManager ? 6 : 8} key={cfg.label}>
+                <Col span={isManager ? 6 : 8} key={cfg.label} style={{ display: 'flex' }}>
                   <StatCard
                     label={cfg.label}
                     icon={cfg.icon}
@@ -205,11 +205,11 @@ export default function Dashboard() {
           {/* Project list */}
           {!isAccountant ? (
             <Card
-              style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+              style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
               bodyStyle={{ padding: '0 0 16px' }}
               title={
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <Text style={{ color: '#e6edf3', fontWeight: 700 }}>Project List</Text>
+                  <Text style={{ color: '#111827', fontWeight: 700 }}>Project List</Text>
                   <Button
                     size="small"
                     type="primary"
@@ -221,7 +221,7 @@ export default function Dashboard() {
                   </Button>
                 </div>
               }
-              headStyle={{ borderBottom: '1px solid #1e2a3d', padding: '12px 20px' }}
+              headStyle={{ borderBottom: '1px solid #e5e7eb', padding: '12px 20px' }}
             >
               <div style={{ padding: '0 20px' }}>
                 <Tabs
@@ -234,20 +234,20 @@ export default function Dashboard() {
                   ]}
                 />
                 <div style={{
-                  border: '2px dashed #1e2a3d', borderRadius: 10,
+                  border: '2px dashed #e5e7eb', borderRadius: 10,
                   padding: '48px 24px', textAlign: 'center',
                   marginTop: 4,
                 }}>
-                  <ProjectOutlined style={{ fontSize: 32, color: '#1e2a3d', marginBottom: 12 }} />
-                  <Text style={{ color: '#4b5563', display: 'block' }}>No projects found</Text>
-                  <Text style={{ color: '#2d3d52', fontSize: 12, display: 'block', marginTop: 4 }}>
+                  <ProjectOutlined style={{ fontSize: 32, color: '#e5e7eb', marginBottom: 12 }} />
+                  <Text style={{ color: '#9ca3af', display: 'block' }}>No projects found</Text>
+                  <Text style={{ color: '#9ca3af', fontSize: 12, display: 'block', marginTop: 4 }}>
                     Click "Add Project" to create your first project
                   </Text>
                 </div>
               </div>
             </Card>
           ) : (
-            <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 20 }}>
+            <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 20 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div style={{
                   width: 40, height: 40, borderRadius: 10,
@@ -257,8 +257,8 @@ export default function Dashboard() {
                   <RiseOutlined style={{ color: '#22c55e', fontSize: 18 }} />
                 </div>
                 <div>
-                  <Text style={{ color: '#e6edf3', fontWeight: 600 }}>Accountant Dashboard</Text>
-                  <Text style={{ color: '#4b5563', fontSize: 12, display: 'block' }}>
+                  <Text style={{ color: '#111827', fontWeight: 600 }}>Accountant Dashboard</Text>
+                  <Text style={{ color: '#9ca3af', fontSize: 12, display: 'block' }}>
                     View and manage your organization's financial records
                   </Text>
                 </div>

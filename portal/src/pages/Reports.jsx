@@ -11,12 +11,12 @@ function ActivityLogDrawer({ open, onClose }) {
   const [form] = Form.useForm()
   return (
     <Drawer open={open} onClose={onClose}
-      title={<span style={{ color: '#e6edf3', fontWeight: 700 }}>Activity Log</span>}
+      title={<span style={{ color: '#111827', fontWeight: 700 }}>Activity Log</span>}
       width={340}
       styles={{
-        body: { background: '#0e1829', padding: 20 },
-        header: { background: '#131c2e', borderBottom: '1px solid #1e2a3d' },
-        footer: { background: '#131c2e', borderTop: '1px solid #1e2a3d', padding: '14px 20px' },
+        body: { background: '#f9fafb', padding: 20 },
+        header: { background: '#ffffff', borderBottom: '1px solid #e5e7eb' },
+        footer: { background: '#ffffff', borderTop: '1px solid #e5e7eb', padding: '14px 20px' },
       }}
       footer={
         <Button type="primary" block size="large" className="btn-primary"
@@ -37,10 +37,10 @@ function ActivityLogDrawer({ open, onClose }) {
         </Form.Item>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10, padding: '12px 0' }}>
           <Form.Item name="followUp" valuePropName="checked" style={{ margin: 0 }}>
-            <Checkbox style={{ color: '#94a3b8' }}>Follow up on Calls</Checkbox>
+            <Checkbox style={{ color: '#6b7280' }}>Follow up on Calls</Checkbox>
           </Form.Item>
           <Form.Item name="visits" valuePropName="checked" style={{ margin: 0 }}>
-            <Checkbox style={{ color: '#94a3b8' }}>Visits</Checkbox>
+            <Checkbox style={{ color: '#6b7280' }}>Visits</Checkbox>
           </Form.Item>
         </div>
       </Form>
@@ -69,7 +69,7 @@ export default function Reports() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
         {activityReports.map(report => (
           <Card key={report.id}
-            style={{ background: '#131c2e', border: '1px solid #1e2a3d' }}
+            style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
             bodyStyle={{ padding: '16px 20px' }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16 }}>
@@ -90,10 +90,10 @@ export default function Reports() {
                     </Tag>
                   )}
                 </div>
-                <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 14, display: 'block', marginBottom: 6 }}>
+                <Text style={{ color: '#111827', fontWeight: 600, fontSize: 14, display: 'block', marginBottom: 6 }}>
                   {report.concept}
                 </Text>
-                <Text style={{ color: '#64748b', fontSize: 12, lineHeight: 1.6 }}>
+                <Text style={{ color: '#9ca3af', fontSize: 12, lineHeight: 1.6 }}>
                   {report.description}
                 </Text>
               </div>
@@ -103,11 +103,11 @@ export default function Reports() {
                   <Avatar size={20} style={{ background: 'linear-gradient(135deg,#22c55e,#16a34a)', fontSize: 9, fontWeight: 700 }}>
                     {report.createdBy.slice(0, 2).toUpperCase()}
                   </Avatar>
-                  <Text style={{ color: '#94a3b8', fontSize: 12 }}>{report.createdBy}</Text>
+                  <Text style={{ color: '#6b7280', fontSize: 12 }}>{report.createdBy}</Text>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                  <CalendarOutlined style={{ color: '#4b5563', fontSize: 11 }} />
-                  <Text style={{ color: '#4b5563', fontSize: 11 }}>{report.createdAt}</Text>
+                  <CalendarOutlined style={{ color: '#9ca3af', fontSize: 11 }} />
+                  <Text style={{ color: '#9ca3af', fontSize: 11 }}>{report.createdAt}</Text>
                 </div>
               </div>
             </div>

@@ -11,7 +11,7 @@ function ProfileTab() {
 
   return (
     <div style={{ maxWidth: 520 }}>
-      <Text style={{ color: '#4b5563', fontSize: 13, display: 'block', marginBottom: 24 }}>
+      <Text style={{ color: '#9ca3af', fontSize: 13, display: 'block', marginBottom: 24 }}>
         Update your personal information and profile details
       </Text>
 
@@ -28,7 +28,7 @@ function ProfileTab() {
             <div style={{
               position: 'absolute', bottom: -2, right: -2,
               width: 24, height: 24, borderRadius: '50%',
-              background: '#22c55e', border: '2px solid #0e1829',
+              background: '#22c55e', border: '2px solid #f9fafb',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               cursor: 'pointer',
             }}>
@@ -37,8 +37,8 @@ function ProfileTab() {
           </Upload>
         </div>
         <div>
-          <Text style={{ color: '#e6edf3', fontWeight: 700, fontSize: 15, display: 'block' }}>{role}</Text>
-          <Text style={{ color: '#4b5563', fontSize: 12 }}>Click the camera icon to update your photo</Text>
+          <Text style={{ color: '#111827', fontWeight: 700, fontSize: 15, display: 'block' }}>{role}</Text>
+          <Text style={{ color: '#9ca3af', fontSize: 12 }}>Click the camera icon to update your photo</Text>
         </div>
       </div>
 
@@ -67,18 +67,18 @@ function SecurityTab() {
   const [form] = Form.useForm()
   return (
     <div style={{ maxWidth: 520 }}>
-      <Text style={{ color: '#4b5563', fontSize: 13, display: 'block', marginBottom: 24 }}>
+      <Text style={{ color: '#9ca3af', fontSize: 13, display: 'block', marginBottom: 24 }}>
         Update your password. You will be logged out after saving.
       </Text>
 
-      <Card style={{ background: '#0e1829', border: '1px solid #1e2a3d', borderRadius: 10, marginBottom: 24 }}
+      <Card style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10, marginBottom: 24 }}
         bodyStyle={{ padding: 20 }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 4 }}>
           <LockOutlined style={{ color: '#22c55e', fontSize: 16 }} />
-          <Text style={{ color: '#e6edf3', fontWeight: 600 }}>Password Requirements</Text>
+          <Text style={{ color: '#111827', fontWeight: 600 }}>Password Requirements</Text>
         </div>
-        <Text style={{ color: '#4b5563', fontSize: 12, lineHeight: 1.8 }}>
+        <Text style={{ color: '#9ca3af', fontSize: 12, lineHeight: 1.8 }}>
           • At least 8 characters long<br />
           • Contains uppercase and lowercase letters<br />
           • Contains at least one number or symbol
@@ -107,7 +107,7 @@ export default function Settings() {
   return (
     <div>
       <PageHeader title="Settings" subtitle="Manage your account preferences" />
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: '0 24px 24px' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: '0 24px 24px' }}>
         <Tabs
           items={[
             { key: 'profile', label: 'Profile', children: <ProfileTab /> },

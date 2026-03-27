@@ -34,7 +34,7 @@ function AddCustomItemModal({ open, onClose, onAdd }) {
       open={open}
       onCancel={onClose}
       footer={null}
-      title={<span style={{ color: '#e6edf3', fontWeight: 700 }}>Add Custom Item</span>}
+      title={<span style={{ color: '#111827', fontWeight: 700 }}>Add Custom Item</span>}
       width={420}
     >
       <Form form={form} layout="vertical" style={{ marginTop: 8 }}>
@@ -141,12 +141,12 @@ export default function NewQuotation() {
   }])
 
   const itemColumns = [
-    { title: 'Category', dataIndex: 'category', width: 110, render: v => <Text style={{ color: '#94a3b8', fontSize: 12 }}>{v}</Text> },
-    { title: 'Sub-Category', dataIndex: 'subCategory', width: 110, render: v => <Text style={{ color: '#64748b', fontSize: 12 }}>{v}</Text> },
-    { title: 'Model', dataIndex: 'model', render: v => <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 12 }}>{v}</Text> },
-    { title: 'Wattage', dataIndex: 'wattage', width: 80, render: v => <Text style={{ color: '#94a3b8', fontSize: 12 }}>{v}</Text> },
-    { title: 'Color Temp', dataIndex: 'colorTemp', width: 90, render: v => <Text style={{ color: '#94a3b8', fontSize: 12 }}>{v}</Text> },
-    { title: 'Qty', dataIndex: 'quantity', width: 60, render: v => <Text style={{ color: '#e6edf3', fontSize: 12 }}>{v}</Text> },
+    { title: 'Category', dataIndex: 'category', width: 110, render: v => <Text style={{ color: '#6b7280', fontSize: 12 }}>{v}</Text> },
+    { title: 'Sub-Category', dataIndex: 'subCategory', width: 110, render: v => <Text style={{ color: '#9ca3af', fontSize: 12 }}>{v}</Text> },
+    { title: 'Model', dataIndex: 'model', render: v => <Text style={{ color: '#111827', fontWeight: 600, fontSize: 12 }}>{v}</Text> },
+    { title: 'Wattage', dataIndex: 'wattage', width: 80, render: v => <Text style={{ color: '#6b7280', fontSize: 12 }}>{v}</Text> },
+    { title: 'Color Temp', dataIndex: 'colorTemp', width: 90, render: v => <Text style={{ color: '#6b7280', fontSize: 12 }}>{v}</Text> },
+    { title: 'Qty', dataIndex: 'quantity', width: 60, render: v => <Text style={{ color: '#111827', fontSize: 12 }}>{v}</Text> },
     {
       title: '', width: 40,
       render: (_, record) => (
@@ -163,11 +163,11 @@ export default function NewQuotation() {
       {/* Header */}
       <div style={{
         display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        marginBottom: 24, paddingBottom: 20, borderBottom: '1px solid #1e2a3d',
+        marginBottom: 24, paddingBottom: 20, borderBottom: '1px solid #e5e7eb',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <Button type="text" icon={<ArrowLeftOutlined />}
-            style={{ color: '#64748b' }}
+            style={{ color: '#9ca3af' }}
             onClick={() => navigate('/quotations')}
           />
           <Title level={2} style={{ color: '#22c55e', margin: 0, fontWeight: 800, fontSize: 22 }}>
@@ -194,7 +194,7 @@ export default function NewQuotation() {
       </div>
 
       {/* Header fields */}
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d', marginBottom: 16 }} bodyStyle={{ padding: '20px 24px 8px' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 16 }} bodyStyle={{ padding: '20px 24px 8px' }}>
         <Form form={form} layout="vertical">
           <Row gutter={16}>
             <Col span={5}>
@@ -227,7 +227,7 @@ export default function NewQuotation() {
       </Card>
 
       {/* Add Item row */}
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d', marginBottom: 16 }} bodyStyle={{ padding: '16px 24px' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 16 }} bodyStyle={{ padding: '16px 24px' }}>
         <Form form={itemForm} layout="vertical">
           <Row gutter={12} align="bottom">
             <Col flex="1">
@@ -289,7 +289,7 @@ export default function NewQuotation() {
       </Card>
 
       {/* Description */}
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d', marginBottom: 16 }} bodyStyle={{ padding: '16px 24px' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 16 }} bodyStyle={{ padding: '16px 24px' }}>
         <Form layout="vertical">
           <Form.Item label="Description" style={{ marginBottom: 0 }}>
             <TextArea
@@ -301,12 +301,12 @@ export default function NewQuotation() {
       </Card>
 
       {/* Terms and Conditions */}
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d', marginBottom: 24 }} bodyStyle={{ padding: 0 }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 24 }} bodyStyle={{ padding: 0 }}>
         <div style={{
           padding: '12px 24px',
-          background: '#1e2a3d',
+          background: '#f3f4f6',
           borderRadius: '8px 8px 0 0',
-          fontWeight: 700, color: '#e6edf3', fontSize: 14,
+          fontWeight: 700, color: '#111827', fontSize: 14,
         }}>
           Terms and Conditions
         </div>
@@ -315,32 +315,32 @@ export default function NewQuotation() {
           {terms.map((term, idx) => (
             <div key={term.key} style={{
               display: 'flex', alignItems: 'flex-start', gap: 0,
-              borderBottom: '1px solid #1e2a3d',
+              borderBottom: '1px solid #e5e7eb',
               minHeight: 44,
             }}>
               {/* Label */}
               <div style={{
                 width: 180, flexShrink: 0,
                 padding: '10px 16px',
-                borderRight: '1px solid #1e2a3d',
-                background: idx % 2 === 0 ? '#0e1829' : '#0a0f1a',
+                borderRight: '1px solid #e5e7eb',
+                background: idx % 2 === 0 ? '#f9fafb' : '#ffffff',
               }}>
                 <Input
                   variant="borderless"
                   value={term.label}
                   onChange={e => updateTerm(term.key, 'label', e.target.value)}
-                  style={{ color: '#94a3b8', fontSize: 13, fontWeight: 600, padding: 0 }}
+                  style={{ color: '#6b7280', fontSize: 13, fontWeight: 600, padding: 0 }}
                   placeholder="Label"
                 />
               </div>
               {/* Value */}
-              <div style={{ flex: 1, padding: '10px 16px', background: idx % 2 === 0 ? '#0e1829' : '#0a0f1a' }}>
+              <div style={{ flex: 1, padding: '10px 16px', background: idx % 2 === 0 ? '#f9fafb' : '#ffffff' }}>
                 <Input.TextArea
                   variant="borderless"
                   value={term.value}
                   onChange={e => updateTerm(term.key, 'value', e.target.value)}
                   autoSize={{ minRows: 1 }}
-                  style={{ color: '#64748b', fontSize: 12, padding: 0, resize: 'none' }}
+                  style={{ color: '#9ca3af', fontSize: 12, padding: 0, resize: 'none' }}
                   placeholder="Term description"
                 />
               </div>
@@ -348,8 +348,8 @@ export default function NewQuotation() {
               <div style={{
                 width: 40, flexShrink: 0, display: 'flex',
                 alignItems: 'center', justifyContent: 'center',
-                background: idx % 2 === 0 ? '#0e1829' : '#0a0f1a',
-                borderLeft: '1px solid #1e2a3d',
+                background: idx % 2 === 0 ? '#f9fafb' : '#ffffff',
+                borderLeft: '1px solid #e5e7eb',
                 padding: '10px 8px',
               }}>
                 <Button type="text" size="small" icon={<DeleteOutlined />}
@@ -364,7 +364,7 @@ export default function NewQuotation() {
         {/* Add term row */}
         <div style={{ padding: '10px 24px' }}>
           <Button type="dashed" icon={<PlusOutlined />} onClick={addTerm}
-            style={{ borderColor: '#1e2a3d', color: '#64748b' }}
+            style={{ borderColor: '#e5e7eb', color: '#9ca3af' }}
           >
             ADD
           </Button>
@@ -373,7 +373,7 @@ export default function NewQuotation() {
 
       {/* Action buttons */}
       <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 12 }}>
-        <Button size="large" style={{ minWidth: 140, borderColor: '#1e2a3d' }}
+        <Button size="large" style={{ minWidth: 140, borderColor: '#e5e7eb' }}
           onClick={() => navigate('/quotations')}
         >
           Save as Draft

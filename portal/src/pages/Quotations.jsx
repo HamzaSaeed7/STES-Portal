@@ -18,17 +18,17 @@ export default function Quotations() {
   const columns = [
     {
       title: '#', render: (_, __, i) => (
-        <Text style={{ color: '#4b5563', fontWeight: 600 }}>{i + 1}</Text>
+        <Text style={{ color: '#9ca3af', fontWeight: 600 }}>{i + 1}</Text>
       ), width: 48,
     },
     {
       title: 'Invoice Number', dataIndex: 'invoiceNumber',
-      render: v => <Text style={{ color: '#e6edf3', fontWeight: 600, fontFamily: 'monospace' }}>{v}</Text>,
+      render: v => <Text style={{ color: '#111827', fontWeight: 600, fontFamily: 'monospace' }}>{v}</Text>,
     },
-    { title: 'Client Name', dataIndex: 'clientName', render: v => <Text style={{ color: '#94a3b8' }}>{v}</Text> },
-    { title: 'Project', dataIndex: 'project', render: v => <Text style={{ color: '#64748b' }}>{v}</Text> },
-    { title: 'Quotation For', dataIndex: 'quotationFor', render: v => <Text style={{ color: '#64748b' }}>{v}</Text> },
-    { title: 'Date', dataIndex: 'date', render: v => <Text style={{ color: '#4b5563', fontSize: 12 }}>{v}</Text> },
+    { title: 'Client Name', dataIndex: 'clientName', render: v => <Text style={{ color: '#6b7280' }}>{v}</Text> },
+    { title: 'Project', dataIndex: 'project', render: v => <Text style={{ color: '#9ca3af' }}>{v}</Text> },
+    { title: 'Quotation For', dataIndex: 'quotationFor', render: v => <Text style={{ color: '#9ca3af' }}>{v}</Text> },
+    { title: 'Date', dataIndex: 'date', render: v => <Text style={{ color: '#9ca3af', fontSize: 12 }}>{v}</Text> },
     { title: 'Status', dataIndex: 'status', render: v => <StatusBadge status={v} /> },
     {
       title: 'Action', width: 60,
@@ -53,8 +53,8 @@ export default function Quotations() {
         }
       />
 
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 0 }}>
-        <div style={{ padding: '0 20px', borderBottom: '1px solid #1e2a3d' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
+        <div style={{ padding: '0 20px', borderBottom: '1px solid #e5e7eb' }}>
           <Tabs
             activeKey={activeTab}
             onChange={setActiveTab}
@@ -69,14 +69,14 @@ export default function Quotations() {
         <div className="filter-bar" style={{ margin: '16px 20px 0' }}>
           <div className="filter-bar-field">
             <span className="filter-bar-label">Invoice No.</span>
-            <Input placeholder="e.g. STES241-17A" prefix={<SearchOutlined style={{ color: '#4b5563' }} />}
+            <Input placeholder="e.g. STES241-17A" prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
               style={{ width: 170 }} value={filters.invoice}
               onChange={e => setFilters(f => ({ ...f, invoice: e.target.value }))} allowClear
             />
           </div>
           <div className="filter-bar-field">
             <span className="filter-bar-label">Client Name</span>
-            <Input placeholder="Search client..." prefix={<SearchOutlined style={{ color: '#4b5563' }} />}
+            <Input placeholder="Search client..." prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
               style={{ width: 160 }} value={filters.client}
               onChange={e => setFilters(f => ({ ...f, client: e.target.value }))} allowClear
             />
@@ -108,7 +108,7 @@ export default function Quotations() {
           <div className="filter-bar-divider" />
           <div style={{ alignSelf: 'flex-end' }}>
             <Button icon={<ReloadOutlined />} onClick={resetFilters}
-              style={{ borderColor: '#1e2a3d', color: '#64748b' }}
+              style={{ borderColor: '#e5e7eb', color: '#9ca3af' }}
             >
               Reset
             </Button>

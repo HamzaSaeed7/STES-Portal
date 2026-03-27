@@ -31,12 +31,12 @@ function EmployeeFormModal({ open, onClose, employee }) {
       footer={null}
       afterOpenChange={visible => { if (visible) handleOpen() }}
       title={
-        <span style={{ color: '#e6edf3', fontWeight: 700 }}>
+        <span style={{ color: '#111827', fontWeight: 700 }}>
           {isEdit ? 'Edit Employee' : 'Invite Employee'}
         </span>
       }
     >
-      <Text style={{ color: '#4b5563', fontSize: 13, display: 'block', marginBottom: 20 }}>
+      <Text style={{ color: '#9ca3af', fontSize: 13, display: 'block', marginBottom: 20 }}>
         {isEdit ? 'Update the information for this employee' : 'Add the following information about the new user'}
       </Text>
       <Form form={form} layout="vertical">
@@ -79,11 +79,11 @@ function DeleteModal({ open, employee, onClose }) {
         }}>
           🗑️
         </div>
-        <Title level={5} style={{ color: '#e6edf3', marginBottom: 6 }}>
+        <Title level={5} style={{ color: '#111827', marginBottom: 6 }}>
           Remove {employee?.name}?
         </Title>
-        <Text style={{ color: '#4b5563', fontSize: 13 }}>
-          This will remove <strong style={{ color: '#94a3b8' }}>{employee?.name}</strong> from your
+        <Text style={{ color: '#9ca3af', fontSize: 13 }}>
+          This will remove <strong style={{ color: '#6b7280' }}>{employee?.name}</strong> from your
           organization permanently.
         </Text>
         <Tag color="blue" style={{ marginTop: 8 }}>{employee?.role}</Tag>
@@ -107,10 +107,10 @@ function ViewModal({ open, employee, onClose }) {
         }}>
           {employee.name.slice(0, 2).toUpperCase()}
         </Avatar>
-        <Title level={5} style={{ color: '#e6edf3', margin: '0 0 6px' }}>{employee.name}</Title>
+        <Title level={5} style={{ color: '#111827', margin: '0 0 6px' }}>{employee.name}</Title>
         <Tag color="green">{employee.role}</Tag>
       </div>
-      <Divider style={{ borderColor: '#1e2a3d', margin: '8px 0 16px' }} />
+      <Divider style={{ borderColor: '#e5e7eb', margin: '8px 0 16px' }} />
       <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
         {[
           ['E-mail', employee.email],
@@ -121,10 +121,10 @@ function ViewModal({ open, employee, onClose }) {
         ].map(([label, value]) => (
           <div key={label} style={{
             display: 'flex', gap: 10, padding: '8px 12px',
-            background: '#0e1829', borderRadius: 8,
+            background: '#f9fafb', borderRadius: 8,
           }}>
-            <Text style={{ color: '#4b5563', width: 100, flexShrink: 0, fontSize: 12 }}>{label}</Text>
-            <Text style={{ color: '#e6edf3', fontSize: 12 }}>{value}</Text>
+            <Text style={{ color: '#9ca3af', width: 100, flexShrink: 0, fontSize: 12 }}>{label}</Text>
+            <Text style={{ color: '#111827', fontSize: 12 }}>{value}</Text>
           </div>
         ))}
       </div>
@@ -152,12 +152,12 @@ export default function Employees() {
           <Avatar size={32} style={{ background: 'linear-gradient(135deg, #22c55e, #16a34a)', fontSize: 11, fontWeight: 700 }}>
             {name.slice(0, 2).toUpperCase()}
           </Avatar>
-          <Text style={{ color: '#e6edf3', fontWeight: 500 }}>{name}</Text>
+          <Text style={{ color: '#111827', fontWeight: 500 }}>{name}</Text>
         </div>
       ),
     },
-    { title: 'Email', dataIndex: 'email', render: v => <Text style={{ color: '#64748b' }}>{v}</Text> },
-    { title: 'Employee Code', dataIndex: 'code', render: v => <Text style={{ color: '#94a3b8' }}>{v}</Text> },
+    { title: 'Email', dataIndex: 'email', render: v => <Text style={{ color: '#9ca3af' }}>{v}</Text> },
+    { title: 'Employee Code', dataIndex: 'code', render: v => <Text style={{ color: '#6b7280' }}>{v}</Text> },
     {
       title: 'Role', dataIndex: 'role',
       render: v => <Tag color="blue" style={{ borderRadius: 6 }}>{v}</Tag>,
@@ -199,11 +199,11 @@ export default function Employees() {
         }
       />
 
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 0 }}>
-        <div style={{ padding: '16px 20px', borderBottom: '1px solid #1e2a3d' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
+        <div style={{ padding: '16px 20px', borderBottom: '1px solid #e5e7eb' }}>
           <Input
             placeholder="Search employees by name..."
-            prefix={<SearchOutlined style={{ color: '#4b5563' }} />}
+            prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
             value={search}
             onChange={e => setSearch(e.target.value)}
             style={{ maxWidth: 320 }}

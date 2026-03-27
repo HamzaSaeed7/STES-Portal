@@ -58,7 +58,7 @@ export default function QuotationDocument() {
     <div>
       {/* Top controls */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
-        <Button type="text" icon={<ArrowLeftOutlined />} style={{ color: '#64748b' }}
+        <Button type="text" icon={<ArrowLeftOutlined />} style={{ color: '#9ca3af' }}
           onClick={() => navigate('/quotations')}>
           Back to Quotations
         </Button>

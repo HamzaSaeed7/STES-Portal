@@ -10,7 +10,7 @@ export default function Invoices() {
   const columns = [
     {
       title: 'Invoice Number', dataIndex: 'invoiceNumber',
-      render: v => <Text style={{ color: '#e6edf3', fontWeight: 700, fontFamily: 'monospace' }}>{v}</Text>,
+      render: v => <Text style={{ color: '#111827', fontWeight: 700, fontFamily: 'monospace' }}>{v}</Text>,
     },
     {
       title: 'Delivered By', dataIndex: 'deliveredBy',
@@ -24,11 +24,11 @@ export default function Invoices() {
           }}>
             {v.slice(0, 1).toUpperCase()}
           </div>
-          <Text style={{ color: '#94a3b8' }}>{v}</Text>
+          <Text style={{ color: '#6b7280' }}>{v}</Text>
         </div>
       ),
     },
-    { title: 'Date of Delivery', dataIndex: 'dateOfDelivery', render: v => <Text style={{ color: '#64748b', fontSize: 12 }}>{v}</Text> },
+    { title: 'Date of Delivery', dataIndex: 'dateOfDelivery', render: v => <Text style={{ color: '#9ca3af', fontSize: 12 }}>{v}</Text> },
     {
       title: 'Total Payment', dataIndex: 'totalPayment',
       render: v => (
@@ -49,7 +49,7 @@ export default function Invoices() {
         title="Invoices"
         subtitle={`${invoices.length} invoices · Total PKR ${total.toLocaleString()}`}
       />
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 0 }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
         <Table dataSource={invoices} columns={columns} rowKey="id" pagination={false} />
       </Card>
     </div>

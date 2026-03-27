@@ -80,7 +80,7 @@ function SidebarLogo() {
           </svg>
         </div>
         <div>
-          <div style={{ color: '#e6edf3', fontWeight: 700, fontSize: 13, lineHeight: 1.3 }}>ST Engineering</div>
+          <div style={{ color: '#ffffff', fontWeight: 700, fontSize: 13, lineHeight: 1.3 }}>ST Engineering</div>
           <div style={{ color: '#22c55e', fontWeight: 600, fontSize: 11, lineHeight: 1.3 }}>Solutions Portal</div>
         </div>
       </div>
@@ -133,17 +133,18 @@ function AppLayoutInner() {
         width={230}
         className="stes-sider"
         style={{
-          background: '#0c1425',
+          background: '#122525',
           position: 'fixed',
           left: 0, top: 0, bottom: 0,
           zIndex: 100,
-          borderRight: '1px solid rgba(255,255,255,0.04)',
+          borderRight: 'none',
+          boxShadow: '2px 0 8px rgba(0,0,0,0.15)',
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
           <SidebarLogo />
 
-          <div className="section-title" style={{ marginTop: 4 }}>Navigation</div>
+          <div className="section-title" style={{ marginTop: 4, color: 'rgba(255,255,255,0.3)' }}>Navigation</div>
 
           <Menu
             theme="dark"
@@ -185,30 +186,31 @@ function AppLayoutInner() {
       </Sider>
 
       {/* ── Main area ── */}
-      <Layout style={{ marginLeft: 230, background: '#0a0f1a' }}>
+      <Layout style={{ marginLeft: 230, background: '#f5f6f8' }}>
         {/* Header */}
         <Header style={{
-          background: '#0e1829',
+          background: '#ffffff',
           padding: '0 24px',
           height: 60,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          borderBottom: '1px solid rgba(255,255,255,0.05)',
+          borderBottom: '1px solid #e5e7eb',
           position: 'sticky',
           top: 0,
           zIndex: 99,
+          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
         }}>
           {/* Page title */}
-          <Text style={{ color: '#e6edf3', fontWeight: 600, fontSize: 15 }}>
+          <Text style={{ color: '#111827', fontWeight: 600, fontSize: 15 }}>
             {pageTitle}
           </Text>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             {/* Demo role switcher */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-              <SwapOutlined style={{ color: '#4b5563', fontSize: 12 }} />
-              <Text style={{ color: '#4b5563', fontSize: 12 }}>Demo:</Text>
+              <SwapOutlined style={{ color: '#9ca3af', fontSize: 12 }} />
+              <Text style={{ color: '#9ca3af', fontSize: 12 }}>Demo:</Text>
               <Select
                 value={role}
                 onChange={setRole}
@@ -220,7 +222,7 @@ function AppLayoutInner() {
               />
             </div>
 
-            <div style={{ width: 1, height: 20, background: 'rgba(255,255,255,0.08)' }} />
+            <div style={{ width: 1, height: 20, background: '#e5e7eb' }} />
 
             {/* User dropdown */}
             <Dropdown menu={{ items: userDropdown }} trigger={['click']} placement="bottomRight">
@@ -229,7 +231,7 @@ function AppLayoutInner() {
                 padding: '4px 8px', borderRadius: 8,
                 transition: 'background 0.18s',
               }}
-                onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.05)'}
+                onMouseEnter={e => e.currentTarget.style.background = '#f9fafb'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
               >
                 <Avatar
@@ -244,7 +246,7 @@ function AppLayoutInner() {
                   {ROLE_INITIALS[role]}
                 </Avatar>
                 <div style={{ lineHeight: 1.2 }}>
-                  <div style={{ color: '#e6edf3', fontSize: 13, fontWeight: 600 }}>{role}</div>
+                  <div style={{ color: '#111827', fontSize: 13, fontWeight: 600 }}>{role}</div>
                   <Tag
                     color={ROLE_COLORS[role]}
                     style={{ fontSize: 10, lineHeight: '14px', padding: '0 4px', margin: 0, height: 16 }}
@@ -252,14 +254,14 @@ function AppLayoutInner() {
                     {role}
                   </Tag>
                 </div>
-                <DownOutlined style={{ color: '#4b5563', fontSize: 10 }} />
+                <DownOutlined style={{ color: '#9ca3af', fontSize: 10 }} />
               </div>
             </Dropdown>
           </div>
         </Header>
 
         {/* Content */}
-        <Content style={{ padding: '28px 28px 40px', minHeight: 'calc(100vh - 60px)' }}>
+        <Content style={{ padding: '28px 28px 40px', minHeight: 'calc(100vh - 60px)', background: '#f5f6f8' }}>
           <Outlet />
         </Content>
       </Layout>

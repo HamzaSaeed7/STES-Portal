@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #0a0f1a;
+  background: #f5f6f8;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -17,8 +17,8 @@ body {
 /* ── Scrollbar ───────────────────────────────────── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #2a3547; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #374151; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
 
 /* ── Sidebar ─────────────────────────────────────── */
 .stes-sider .ant-menu-item {
@@ -29,7 +29,7 @@ body {
 }
 
 .stes-sider .ant-menu-item-selected {
-  background: rgba(34, 197, 94, 0.12) !important;
+  background: rgba(34, 197, 94, 0.15) !important;
   border-left: 3px solid #22c55e !important;
 }
 
@@ -39,7 +39,7 @@ body {
 }
 
 .stes-sider .ant-menu-item:hover:not(.ant-menu-item-selected) {
-  background: rgba(255,255,255,0.05) !important;
+  background: rgba(255,255,255,0.06) !important;
 }
 
 .stes-sider .ant-layout-sider-children {
@@ -56,6 +56,7 @@ body {
   font-size: 22px !important;
   font-weight: 700 !important;
   letter-spacing: -0.3px;
+  color: #111827 !important;
 }
 
 /* ── Stat card accent borders ────────────────────── */
@@ -93,10 +94,7 @@ body {
 /* ── Auth background ─────────────────────────────── */
 .auth-bg {
   min-height: 100vh;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(34,197,94,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse at 80% 20%, rgba(59,130,246,0.05) 0%, transparent 50%),
-    linear-gradient(160deg, #050d18 0%, #0a1628 40%, #081420 100%);
+  background: #0c3d3d;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,65 +102,55 @@ body {
 
 /* ── Auth card glass ─────────────────────────────── */
 .auth-card {
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 16px;
+  background: transparent;
   padding: 40px 36px;
-  width: 360px;
-  backdrop-filter: blur(12px);
-  box-shadow:
-    0 0 0 1px rgba(34,197,94,0.08),
-    0 24px 60px rgba(0,0,0,0.5),
-    0 8px 20px rgba(0,0,0,0.3);
+  width: 380px;
 }
 
-/* ── Input dark ──────────────────────────────────── */
+/* ── Auth inputs ─────────────────────────────────── */
 .auth-card .ant-input-affix-wrapper,
 .auth-card .ant-input-password {
-  background: transparent !important;
-  border: none !important;
-  border-bottom: 1px solid rgba(255,255,255,0.15) !important;
-  border-radius: 0 !important;
+  background: rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  border-radius: 8px !important;
   box-shadow: none !important;
-  padding: 10px 0 !important;
-  color: #e6edf3 !important;
+  color: #ffffff !important;
 }
 
 .auth-card .ant-input-affix-wrapper > input.ant-input,
 .auth-card .ant-input {
   background: transparent !important;
-  color: #e6edf3 !important;
-  box-shadow: none !important;
+  color: #ffffff !important;
 }
 
 .auth-card .ant-input-affix-wrapper-focused,
 .auth-card .ant-input-affix-wrapper:focus-within {
-  border-bottom-color: #22c55e !important;
-  box-shadow: none !important;
+  border-color: #22c55e !important;
+  box-shadow: 0 0 0 2px rgba(34,197,94,0.2) !important;
 }
 
 .auth-card .ant-input::placeholder,
 .auth-card .ant-input-affix-wrapper input::placeholder {
-  color: #4b5563 !important;
+  color: rgba(255,255,255,0.45) !important;
 }
 
 .auth-card .ant-input-password-icon,
 .auth-card .ant-input-suffix .anticon {
-  color: #4b5563 !important;
+  color: rgba(255,255,255,0.45) !important;
 }
 
 .auth-card input:-webkit-autofill,
 .auth-card input:-webkit-autofill:hover,
 .auth-card input:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-  -webkit-text-fill-color: #e6edf3 !important;
-  caret-color: #e6edf3;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.12) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  caret-color: #ffffff;
 }
 
 /* ── Filter bar ──────────────────────────────────── */
 .filter-bar {
-  background: linear-gradient(135deg, #0e1829 0%, #131c2e 100%);
-  border: 1px solid #1e2a3d;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
   padding: 16px 20px;
   margin-bottom: 16px;
@@ -170,6 +158,7 @@ body {
   gap: 14px;
   flex-wrap: wrap;
   align-items: flex-end;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .filter-bar-field {
@@ -181,7 +170,7 @@ body {
 .filter-bar-label {
   font-size: 11px;
   font-weight: 600;
-  color: #4b5563;
+  color: #9ca3af;
   text-transform: uppercase;
   letter-spacing: 0.6px;
 }
@@ -189,7 +178,7 @@ body {
 .filter-bar-divider {
   width: 1px;
   height: 32px;
-  background: rgba(255,255,255,0.06);
+  background: #e5e7eb;
   flex-shrink: 0;
   align-self: flex-end;
   margin-bottom: 1px;
@@ -201,14 +190,14 @@ body {
 }
 .order-card-item:hover {
   border-color: rgba(34,197,94,0.4) !important;
-  background: #1a2235 !important;
+  background: #f0fdf4 !important;
 }
 
 /* ── Section title divider ───────────────────────── */
 .section-title {
   font-size: 13px;
   font-weight: 600;
-  color: #8b949e;
+  color: rgba(255,255,255,0.35);
   text-transform: uppercase;
   letter-spacing: 0.8px;
   padding: 0 16px;

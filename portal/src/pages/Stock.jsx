@@ -24,11 +24,11 @@ function UpdateDrawer({ open, item, onClose }) {
     <Drawer open={open} onClose={onClose} width={360}
       title={
         <div>
-          <Text style={{ color: '#e6edf3', fontWeight: 700, fontSize: 15 }}>Stock Update</Text>
+          <Text style={{ color: '#111827', fontWeight: 700, fontSize: 15 }}>Stock Update</Text>
           {item && (
             <div style={{ marginTop: 4 }}>
               <Tag color="green" style={{ fontSize: 11 }}>{item.category}</Tag>
-              <Text style={{ color: '#4b5563', fontSize: 11, marginLeft: 4 }}>
+              <Text style={{ color: '#9ca3af', fontSize: 11, marginLeft: 4 }}>
                 Last updated Oct 18, 2024
               </Text>
             </div>
@@ -36,8 +36,8 @@ function UpdateDrawer({ open, item, onClose }) {
         </div>
       }
       styles={{
-        body: { background: '#0e1829', padding: 20 },
-        header: { background: '#131c2e', borderBottom: '1px solid #1e2a3d' },
+        body: { background: '#f9fafb', padding: 20 },
+        header: { background: '#ffffff', borderBottom: '1px solid #e5e7eb' },
       }}
     >
       <Form form={form} layout="vertical">
@@ -74,9 +74,9 @@ function DeleteModal({ open, item, onClose }) {
         }}>
           🗑️
         </div>
-        <Title level={5} style={{ color: '#e6edf3' }}>Delete {item?.model}?</Title>
-        <Text style={{ color: '#4b5563', fontSize: 13 }}>
-          This will permanently remove <strong style={{ color: '#94a3b8' }}>{item?.model}</strong> from your stock inventory.
+        <Title level={5} style={{ color: '#111827' }}>Delete {item?.model}?</Title>
+        <Text style={{ color: '#9ca3af', fontSize: 13 }}>
+          This will permanently remove <strong style={{ color: '#6b7280' }}>{item?.model}</strong> from your stock inventory.
         </Text>
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', marginTop: 20 }}>
           <Button size="large" onClick={onClose} style={{ minWidth: 100 }}>Cancel</Button>
@@ -101,26 +101,26 @@ export default function Stock() {
   )
 
   const columns = [
-    { title: '#', render: (_, __, i) => <Text style={{ color: '#4b5563', fontWeight: 600 }}>{i + 1}</Text>, width: 50 },
+    { title: '#', render: (_, __, i) => <Text style={{ color: '#9ca3af', fontWeight: 600 }}>{i + 1}</Text>, width: 50 },
     {
       title: 'Category', dataIndex: 'category',
       render: v => <Tag color={v === 'Outdoor' ? 'blue' : 'purple'} style={{ borderRadius: 6 }}>{v}</Tag>,
       width: 100,
     },
-    { title: 'Model', dataIndex: 'model', render: v => <Text style={{ color: '#e6edf3', fontWeight: 600 }}>{v}</Text> },
-    { title: 'Sub-category', dataIndex: 'subCategory', render: v => <Text style={{ color: '#64748b' }}>{v}</Text> },
-    { title: 'Description', dataIndex: 'description', render: v => <Text style={{ color: '#4b5563', fontSize: 12 }}>{v}</Text>, ellipsis: true },
+    { title: 'Model', dataIndex: 'model', render: v => <Text style={{ color: '#111827', fontWeight: 600 }}>{v}</Text> },
+    { title: 'Sub-category', dataIndex: 'subCategory', render: v => <Text style={{ color: '#9ca3af' }}>{v}</Text> },
+    { title: 'Description', dataIndex: 'description', render: v => <Text style={{ color: '#9ca3af', fontSize: 12 }}>{v}</Text>, ellipsis: true },
     {
       title: 'Opening Stock', dataIndex: 'openingStock',
-      render: v => <Text style={{ color: '#e6edf3', fontWeight: 600 }}>{v}</Text>, width: 110,
+      render: v => <Text style={{ color: '#111827', fontWeight: 600 }}>{v}</Text>, width: 110,
     },
     {
       title: 'Delivered', dataIndex: 'stockDelivered',
-      render: v => <Text style={{ color: v > 0 ? '#22c55e' : '#4b5563' }}>{v}</Text>, width: 90,
+      render: v => <Text style={{ color: v > 0 ? '#22c55e' : '#9ca3af' }}>{v}</Text>, width: 90,
     },
     {
       title: 'On Hold', dataIndex: 'stockOnHold',
-      render: v => <Text style={{ color: v > 0 ? '#f59e0b' : '#4b5563' }}>{v}</Text>, width: 80,
+      render: v => <Text style={{ color: v > 0 ? '#f59e0b' : '#9ca3af' }}>{v}</Text>, width: 80,
     },
     {
       title: '', width: 72,
@@ -146,11 +146,11 @@ export default function Stock() {
         subtitle={`${filtered.length} items in inventory`}
       />
 
-      <Card style={{ background: '#131c2e', border: '1px solid #1e2a3d' }} bodyStyle={{ padding: 0 }}>
-        <div className="filter-bar" style={{ margin: 0, borderRadius: 0, borderLeft: 'none', borderRight: 'none', borderTop: 'none', borderBottom: '1px solid #1e2a3d', padding: '14px 20px' }}>
+      <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
+        <div className="filter-bar" style={{ margin: 0, borderRadius: 0, borderLeft: 'none', borderRight: 'none', borderTop: 'none', borderBottom: '1px solid #e5e7eb', padding: '14px 20px' }}>
           <Input
             placeholder="Search by Category"
-            prefix={<SearchOutlined style={{ color: '#4b5563' }} />}
+            prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
             style={{ width: 170 }} value={filters.category}
             onChange={e => setFilters(f => ({ ...f, category: e.target.value }))} allowClear
           />
