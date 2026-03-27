@@ -197,29 +197,29 @@ export default function NewQuotation() {
       <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 16 }} bodyStyle={{ padding: '20px 24px 8px' }}>
         <Form form={form} layout="vertical">
           <Row gutter={16}>
-            <Col span={5}>
+            <Col xs={24} sm={12} md={5}>
               <Form.Item label="Attention Person" name="attentionPerson">
                 <Input placeholder="Person name" />
               </Form.Item>
             </Col>
-            <Col span={5}>
+            <Col xs={24} sm={12} md={5}>
               <Form.Item label="Client" name="client">
                 <Input placeholder="Client name" />
               </Form.Item>
             </Col>
-            <Col span={5}>
+            <Col xs={24} sm={12} md={5}>
               <Form.Item label="Project Name" name="projectName">
                 <Input placeholder="Project name" />
               </Form.Item>
             </Col>
-            <Col span={5}>
+            <Col xs={24} sm={12} md={5}>
               <Form.Item label="Subject" name="subject">
                 <Input placeholder="Subject" />
               </Form.Item>
             </Col>
-            <Col span={4}>
+            <Col xs={24} sm={12} md={4}>
               <Form.Item label="Status" name="status" initialValue="Normal">
-                <Select options={STATUS_OPTIONS} />
+                <Select options={STATUS_OPTIONS} style={{ width: '100%' }} />
               </Form.Item>
             </Col>
           </Row>
@@ -229,46 +229,46 @@ export default function NewQuotation() {
       {/* Add Item row */}
       <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb', marginBottom: 16 }} bodyStyle={{ padding: '16px 24px' }}>
         <Form form={itemForm} layout="vertical">
-          <Row gutter={12} align="bottom">
-            <Col flex="1">
-              <Form.Item label="Category" name="category" style={{ marginBottom: 0 }}>
-                <Select options={CATEGORY_OPTIONS} placeholder="e.g., Indoor" />
+          <Row gutter={[12, 0]}>
+            <Col xs={12} sm={8} md={4}>
+              <Form.Item label="Category" name="category" style={{ marginBottom: 12 }}>
+                <Select options={CATEGORY_OPTIONS} placeholder="e.g., Indoor" style={{ width: '100%' }} />
               </Form.Item>
             </Col>
-            <Col flex="1">
-              <Form.Item label="Sub-Category" name="subCategory" style={{ marginBottom: 0 }}>
-                <Input placeholder="Select sub-category" />
+            <Col xs={12} sm={8} md={4}>
+              <Form.Item label="Sub-Category" name="subCategory" style={{ marginBottom: 12 }}>
+                <Input placeholder="Sub-category" />
               </Form.Item>
             </Col>
-            <Col flex="1">
-              <Form.Item label="Model" name="model" style={{ marginBottom: 0 }}>
+            <Col xs={12} sm={8} md={4}>
+              <Form.Item label="Model" name="model" style={{ marginBottom: 12 }}>
                 <Input placeholder="e.g., M16" />
               </Form.Item>
             </Col>
-            <Col flex="1">
-              <Form.Item label="Wattage" name="wattage" style={{ marginBottom: 0 }}>
-                <Select options={WATTAGE_OPTIONS} placeholder="e.g. 18W" />
+            <Col xs={12} sm={8} md={4}>
+              <Form.Item label="Wattage" name="wattage" style={{ marginBottom: 12 }}>
+                <Select options={WATTAGE_OPTIONS} placeholder="e.g. 18W" style={{ width: '100%' }} />
               </Form.Item>
             </Col>
-            <Col flex="1">
-              <Form.Item label="Color Temperature" name="colorTemp" style={{ marginBottom: 0 }}>
-                <Select options={COLOR_TEMP_OPTIONS} placeholder="e.g. 3000K" />
+            <Col xs={12} sm={8} md={4}>
+              <Form.Item label="Color Temp" name="colorTemp" style={{ marginBottom: 12 }}>
+                <Select options={COLOR_TEMP_OPTIONS} placeholder="e.g. 3000K" style={{ width: '100%' }} />
               </Form.Item>
             </Col>
-            <Col flex="1">
-              <Form.Item label="Quantity" name="quantity" style={{ marginBottom: 0 }}>
+            <Col xs={12} sm={8} md={2}>
+              <Form.Item label="Qty" name="quantity" style={{ marginBottom: 12 }}>
                 <Input type="number" placeholder="0" />
               </Form.Item>
             </Col>
-            <Col>
+            <Col xs={24} sm={24} md={2} style={{ display: 'flex', alignItems: 'flex-end', paddingBottom: 12 }}>
               <Button
                 type="primary"
                 className="btn-primary"
                 icon={<PlusOutlined />}
                 onClick={addItem}
-                style={{ marginBottom: 0 }}
+                style={{ width: '100%' }}
               >
-                Add Item
+                Add
               </Button>
             </Col>
           </Row>

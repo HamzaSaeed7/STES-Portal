@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import { Layout, Menu, Avatar, Dropdown, Select, Typography, Tag } from 'antd'
+import { Layout, Menu, Avatar, Dropdown, Select, Typography, Tag, Button } from 'antd'
 import {
   DashboardOutlined,
   TeamOutlined,
@@ -14,6 +15,8 @@ import {
   UserOutlined,
   DownOutlined,
   SwapOutlined,
+  MenuOutlined,
+  CloseOutlined,
 } from '@ant-design/icons'
 import { RoleProvider, useRole } from './RoleContext'
 import { ROLES, NAV_BY_ROLE } from '../../data/staticData'
@@ -58,31 +61,38 @@ const ROLE_INITIALS = {
   [ROLES.SALES_PERSON]: 'SP',
 }
 
-function SidebarLogo() {
+function SidebarLogo({ onClose, isMobile }) {
   return (
     <div style={{
-      padding: '24px 20px 20px',
+      padding: '20px 20px 16px',
       borderBottom: '1px solid rgba(255,255,255,0.05)',
       marginBottom: 8,
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-        <div style={{
-          width: 38, height: 38, borderRadius: 10,
-          background: 'rgba(34,197,94,0.15)',
-          border: '1px solid rgba(34,197,94,0.3)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          flexShrink: 0,
-          boxShadow: '0 0 12px rgba(34,197,94,0.1)',
-        }}>
-          <svg width="24" height="24" viewBox="0 0 80 80" fill="none">
-            <rect x="10" y="20" width="44" height="44" rx="4" transform="rotate(-45 10 20)" fill="#22c55e" />
-            <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="800" fontFamily="Arial">ST</text>
-          </svg>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <div style={{
+            width: 38, height: 38, borderRadius: 10,
+            background: 'rgba(34,197,94,0.15)',
+            border: '1px solid rgba(34,197,94,0.3)',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            flexShrink: 0,
+          }}>
+            <svg width="24" height="24" viewBox="0 0 80 80" fill="none">
+              <rect x="10" y="20" width="44" height="44" rx="4" transform="rotate(-45 10 20)" fill="#22c55e" />
+              <text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fill="white" fontSize="22" fontWeight="800" fontFamily="Arial">ST</text>
+            </svg>
+          </div>
+          <div>
+            <div style={{ color: '#ffffff', fontWeight: 700, fontSize: 13, lineHeight: 1.3 }}>ST Engineering</div>
+            <div style={{ color: '#22c55e', fontWeight: 600, fontSize: 11, lineHeight: 1.3 }}>Solutions Portal</div>
+          </div>
         </div>
-        <div>
-          <div style={{ color: '#ffffff', fontWeight: 700, fontSize: 13, lineHeight: 1.3 }}>ST Engineering</div>
-          <div style={{ color: '#22c55e', fontWeight: 600, fontSize: 11, lineHeight: 1.3 }}>Solutions Portal</div>
-        </div>
+        {isMobile && (
+          <Button type="text" icon={<CloseOutlined />}
+            onClick={onClose}
+            style={{ color: 'rgba(255,255,255,0.5)', flexShrink: 0 }}
+          />
+        )}
       </div>
     </div>
   )
@@ -92,6 +102,23 @@ function AppLayoutInner() {
   const { role, setRole } = useRole()
   const navigate = useNavigate()
   const location = useLocation()
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768
+      setIsMobile(mobile)
+      if (!mobile) setSidebarOpen(false)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Close sidebar on navigation (mobile)
+  useEffect(() => {
+    if (isMobile) setSidebarOpen(false)
+  }, [location.pathname, isMobile])
 
   const allowedIds = NAV_BY_ROLE[role]
   const navItems = ALL_NAV_ITEMS.filter(item => allowedIds.includes(item.id))
@@ -128,6 +155,18 @@ function AppLayoutInner() {
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
+      {/* Mobile overlay backdrop */}
+      {isMobile && sidebarOpen && (
+        <div
+          onClick={() => setSidebarOpen(false)}
+          style={{
+            position: 'fixed', inset: 0,
+            background: 'rgba(0,0,0,0.45)',
+            zIndex: 99,
+          }}
+        />
+      )}
+
       {/* ── Sidebar ── */}
       <Sider
         width={230}
@@ -135,14 +174,17 @@ function AppLayoutInner() {
         style={{
           background: '#122525',
           position: 'fixed',
-          left: 0, top: 0, bottom: 0,
+          left: isMobile ? (sidebarOpen ? 0 : -230) : 0,
+          top: 0, bottom: 0,
           zIndex: 100,
           borderRight: 'none',
           boxShadow: '2px 0 8px rgba(0,0,0,0.15)',
+          transition: 'left 0.25s ease',
+          overflowY: 'auto',
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-          <SidebarLogo />
+          <SidebarLogo isMobile={isMobile} onClose={() => setSidebarOpen(false)} />
 
           <div className="section-title" style={{ marginTop: 4, color: 'rgba(255,255,255,0.3)' }}>Navigation</div>
 
@@ -186,11 +228,11 @@ function AppLayoutInner() {
       </Sider>
 
       {/* ── Main area ── */}
-      <Layout style={{ marginLeft: 230, background: '#f5f6f8' }}>
+      <Layout style={{ marginLeft: isMobile ? 0 : 230, background: '#f5f6f8', transition: 'margin-left 0.25s ease' }}>
         {/* Header */}
         <Header style={{
           background: '#ffffff',
-          padding: '0 24px',
+          padding: '0 16px',
           height: 60,
           display: 'flex',
           alignItems: 'center',
@@ -198,25 +240,36 @@ function AppLayoutInner() {
           borderBottom: '1px solid #e5e7eb',
           position: 'sticky',
           top: 0,
-          zIndex: 99,
+          zIndex: 98,
           boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+          gap: 8,
         }}>
-          {/* Page title */}
-          <Text style={{ color: '#111827', fontWeight: 600, fontSize: 15 }}>
-            {pageTitle}
-          </Text>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            {/* Hamburger on mobile */}
+            {isMobile && (
+              <Button
+                type="text"
+                icon={<MenuOutlined />}
+                onClick={() => setSidebarOpen(true)}
+                style={{ color: '#374151', flexShrink: 0 }}
+              />
+            )}
+            <Text style={{ color: '#111827', fontWeight: 600, fontSize: 15 }}>
+              {pageTitle}
+            </Text>
+          </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            {/* Demo role switcher */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexShrink: 0 }}>
+            {/* Demo role switcher — hide label on mobile */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
               <SwapOutlined style={{ color: '#9ca3af', fontSize: 12 }} />
-              <Text style={{ color: '#9ca3af', fontSize: 12 }}>Demo:</Text>
+              {!isMobile && <Text style={{ color: '#9ca3af', fontSize: 12 }}>Demo:</Text>}
               <Select
                 value={role}
                 onChange={setRole}
                 size="small"
                 variant="borderless"
-                style={{ width: 130 }}
+                style={{ width: isMobile ? 110 : 130 }}
                 options={Object.values(ROLES).map(r => ({ value: r, label: r }))}
                 styles={{ popup: { root: { minWidth: 140 } } }}
               />
@@ -227,8 +280,8 @@ function AppLayoutInner() {
             {/* User dropdown */}
             <Dropdown menu={{ items: userDropdown }} trigger={['click']} placement="bottomRight">
               <div style={{
-                display: 'flex', alignItems: 'center', gap: 8, cursor: 'pointer',
-                padding: '4px 8px', borderRadius: 8,
+                display: 'flex', alignItems: 'center', gap: 6, cursor: 'pointer',
+                padding: '4px 6px', borderRadius: 8,
                 transition: 'background 0.18s',
               }}
                 onMouseEnter={e => e.currentTarget.style.background = '#f9fafb'}
@@ -241,27 +294,32 @@ function AppLayoutInner() {
                     fontSize: 11,
                     fontWeight: 700,
                     letterSpacing: '0.5px',
+                    flexShrink: 0,
                   }}
                 >
                   {ROLE_INITIALS[role]}
                 </Avatar>
-                <div style={{ lineHeight: 1.2 }}>
-                  <div style={{ color: '#111827', fontSize: 13, fontWeight: 600 }}>{role}</div>
-                  <Tag
-                    color={ROLE_COLORS[role]}
-                    style={{ fontSize: 10, lineHeight: '14px', padding: '0 4px', margin: 0, height: 16 }}
-                  >
-                    {role}
-                  </Tag>
-                </div>
-                <DownOutlined style={{ color: '#9ca3af', fontSize: 10 }} />
+                {!isMobile && (
+                  <>
+                    <div style={{ lineHeight: 1.2 }}>
+                      <div style={{ color: '#111827', fontSize: 13, fontWeight: 600 }}>{role}</div>
+                      <Tag
+                        color={ROLE_COLORS[role]}
+                        style={{ fontSize: 10, lineHeight: '14px', padding: '0 4px', margin: 0, height: 16 }}
+                      >
+                        {role}
+                      </Tag>
+                    </div>
+                    <DownOutlined style={{ color: '#9ca3af', fontSize: 10 }} />
+                  </>
+                )}
               </div>
             </Dropdown>
           </div>
         </Header>
 
         {/* Content */}
-        <Content style={{ padding: '28px 28px 40px', minHeight: 'calc(100vh - 60px)', background: '#f5f6f8' }}>
+        <Content style={{ padding: isMobile ? '16px 12px 32px' : '28px 28px 40px', minHeight: 'calc(100vh - 60px)', background: '#f5f6f8' }}>
           <Outlet />
         </Content>
       </Layout>

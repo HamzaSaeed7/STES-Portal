@@ -92,7 +92,7 @@ export default function InternalOrders() {
       {/* Stats */}
       <Row gutter={[14, 14]} style={{ marginBottom: 24 }}>
         {STAT_ITEMS.map(item => (
-          <Col span={6} key={item.label}>
+          <Col xs={12} sm={12} md={6} key={item.label}>
             <Card
               className={item.accent}
               bodyStyle={{ padding: '16px 20px' }}
@@ -129,20 +129,20 @@ export default function InternalOrders() {
             prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
             value={search}
             onChange={e => setSearch(e.target.value)}
-            style={{ maxWidth: 260 }}
+            style={{ flex: 1 }}
             allowClear
           />
           <Button icon={<FilterOutlined />} onClick={() => setFilterOpen(true)}>Filters</Button>
         </div>
 
-        <Row gutter={20}>
-          <Col span={10}>
+        <Row gutter={[20, 20]}>
+          <Col xs={24} md={10}>
             {filtered.map(order => (
               <OrderCard key={order.id} order={order} active={selected?.id === order.id} onClick={() => setSelected(order)} />
             ))}
           </Col>
 
-          <Col span={14}>
+          <Col xs={24} md={14}>
             {selected ? (
               <Card style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 10 }} bodyStyle={{ padding: 20 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 16 }}>

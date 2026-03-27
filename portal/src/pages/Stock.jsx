@@ -148,25 +148,36 @@ export default function Stock() {
 
       <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
         <div className="filter-bar" style={{ margin: 0, borderRadius: 0, borderLeft: 'none', borderRight: 'none', borderTop: 'none', borderBottom: '1px solid #e5e7eb', padding: '14px 20px' }}>
-          <Input
-            placeholder="Search by Category"
-            prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
-            style={{ width: 170 }} value={filters.category}
-            onChange={e => setFilters(f => ({ ...f, category: e.target.value }))} allowClear
-          />
-          <Select
-            placeholder="Sub-category"
-            style={{ width: 190 }} allowClear
-            options={SUB_CATEGORY_OPTIONS}
-            value={filters.subCategory || undefined}
-            onChange={v => setFilters(f => ({ ...f, subCategory: v || '' }))}
-          />
-          <Input
-            placeholder="Search by Model"
-            style={{ width: 170 }} value={filters.model}
-            onChange={e => setFilters(f => ({ ...f, model: e.target.value }))} allowClear
-          />
-          <Button icon={<ReloadOutlined />} onClick={resetFilters}>Reset Filters</Button>
+          <div className="filter-bar-field">
+            <span className="filter-bar-label">Category</span>
+            <Input
+              placeholder="Search by Category"
+              prefix={<SearchOutlined style={{ color: '#9ca3af' }} />}
+              style={{ width: 170 }} value={filters.category}
+              onChange={e => setFilters(f => ({ ...f, category: e.target.value }))} allowClear
+            />
+          </div>
+          <div className="filter-bar-field">
+            <span className="filter-bar-label">Sub-category</span>
+            <Select
+              placeholder="All"
+              style={{ width: 190 }} allowClear
+              options={SUB_CATEGORY_OPTIONS}
+              value={filters.subCategory || undefined}
+              onChange={v => setFilters(f => ({ ...f, subCategory: v || '' }))}
+            />
+          </div>
+          <div className="filter-bar-field">
+            <span className="filter-bar-label">Model</span>
+            <Input
+              placeholder="Search by Model"
+              style={{ width: 170 }} value={filters.model}
+              onChange={e => setFilters(f => ({ ...f, model: e.target.value }))} allowClear
+            />
+          </div>
+          <div style={{ alignSelf: 'flex-end' }}>
+            <Button icon={<ReloadOutlined />} onClick={resetFilters}>Reset Filters</Button>
+          </div>
         </div>
 
         <Table

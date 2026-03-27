@@ -122,6 +122,7 @@ export default function Quotations() {
             rowKey="id"
             pagination={{ pageSize: 10, style: { padding: '12px 20px' } }}
             locale={{ emptyText: activeTab === 'deleted' ? 'No deleted quotations' : 'No quotations found' }}
+            scroll={{ x: 'max-content' }}
           />
         </div>
       </Card>

@@ -216,6 +216,7 @@ export default function Employees() {
           columns={columns}
           rowKey="id"
           pagination={false}
+          scroll={{ x: 'max-content' }}
           style={{ background: 'transparent' }}
         />
       </Card>

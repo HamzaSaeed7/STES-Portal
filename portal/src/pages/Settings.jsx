@@ -46,7 +46,7 @@ function ProfileTab() {
         firstName: role, lastName: role,
         username: `Mr. ${role}`, phone: '301 7612066', homeAddress: 'Street 2',
       }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0 16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0 16px' }}>
           <Form.Item label="First Name" name="firstName"><Input size="large" /></Form.Item>
           <Form.Item label="Last Name" name="lastName"><Input size="large" /></Form.Item>
         </div>

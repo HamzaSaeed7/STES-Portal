@@ -180,15 +180,15 @@ export default function Dashboard() {
         </Text>
       </div>
 
-      <Row gutter={20}>
+      <Row gutter={[20, 20]}>
         {/* Left column */}
-        <Col flex="1" style={{ minWidth: 0 }}>
+        <Col xs={24} md={24} lg={16} xl={17} style={{ minWidth: 0 }}>
 
           {/* Stats row */}
           {!isAccountant && (
             <Row gutter={[14, 14]} style={{ marginBottom: 20 }} align="stretch">
               {statConfigs.map(cfg => (
-                <Col span={isManager ? 6 : 8} key={cfg.label} style={{ display: 'flex' }}>
+                <Col xs={12} sm={12} md={isManager ? 6 : 8} key={cfg.label} style={{ display: 'flex' }}>
                   <StatCard
                     label={cfg.label}
                     icon={cfg.icon}
@@ -268,7 +268,7 @@ export default function Dashboard() {
         </Col>
 
         {/* Right column */}
-        <Col style={{ width: 268, flexShrink: 0 }}>
+        <Col xs={24} lg={8} xl={7}>
           <ProfileCard name={userInfo.name} email={userInfo.email} />
           <CalendarWidget />
         </Col>

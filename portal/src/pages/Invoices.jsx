@@ -50,7 +50,7 @@ export default function Invoices() {
         subtitle={`${invoices.length} invoices · Total PKR ${total.toLocaleString()}`}
       />
       <Card style={{ background: '#ffffff', border: '1px solid #e5e7eb' }} bodyStyle={{ padding: 0 }}>
-        <Table dataSource={invoices} columns={columns} rowKey="id" pagination={false} />
+        <Table dataSource={invoices} columns={columns} rowKey="id" pagination={false} scroll={{ x: 'max-content' }} />
       </Card>
     </div>
   )
